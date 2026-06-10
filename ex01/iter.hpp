@@ -1,0 +1,21 @@
+#ifndef ITER_HPP
+#define ITER_HPP
+
+
+//overload for non-const arrays
+template <typename T>
+void iter(T* array, const std::size_t length, void (*func)(T&))
+{
+	for (std::size_t i = 0; i < length; i++)
+		func(array[i]);
+}
+
+//overload for const arrays
+template <typename T>
+void iter(const T* array, const std::size_t length, void (*func)(const T&))
+{
+	for (std::size_t i = 0; i < length; i++)
+		func(array[i]);
+}
+
+#endif
